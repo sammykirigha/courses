@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path =require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 
 process.env.NODE_ENV = 'development';
@@ -26,10 +27,16 @@ module.exports = {
 		})
 	],
 	module: {
-		rules: [{
+		rules: [
+			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use:  "babel-loader"
+			},
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				use:  "eslint-loader"
 			},
 			{
 				test: /\.css$/,
