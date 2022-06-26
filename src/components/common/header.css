@@ -1,0 +1,21 @@
+.navbar{
+	height: 70px;
+	width: 100%;
+	background-color: azure;
+	display: flex;
+	flex-direction: row;
+	padding-left: 100px;
+	padding-top: 30px;
+}
+
+.navItem{
+	text-transform: uppercase;
+	color: blue;
+	margin-left: 50px;
+}
+
+.ActiveStyle{
+	text-transform: uppercase;
+	color: orangered;
+	margin-left: 50px;
+}
