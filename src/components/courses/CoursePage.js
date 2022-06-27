@@ -23,7 +23,6 @@ const CoursesPage = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		console.log(course);
-		setCourse("")
 	}
 	return (
 		<div>
