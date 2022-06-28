@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path =require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -21,6 +22,9 @@ module.exports = {
 		historyApiFallback: true,
 	},
 	plugins: [  
+		new webpack.DefinePlugin({
+			"process.env.API_URL": JSON.stringify("http://localhost:3000")
+		}),
 		new HtmlWebpackPlugin({
 			template: "src/index.html",
 		}),

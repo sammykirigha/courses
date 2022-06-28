@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import createCourse from "../../redux/actions/courseActions";
+import createCourse, { loadCourses } from "../../redux/actions/courseActions";
 
 const courses = {
     title: "",
@@ -13,6 +13,11 @@ const CoursesPage = () => {
     const state = useSelector((state) => state.courses);
     console.log(state);
 
+    useEffect(() => {
+        dispatch(loadCourses());
+        console.log("loading data");
+    }, []);
+
     const handleChange = (e) => {
         setCourse((curCourse) => {
             return {
@@ -24,8 +29,8 @@ const CoursesPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-		dispatch(createCourse(course));
-		setCourse(courses);
+        dispatch(createCourse(course));
+        setCourse(courses);
     };
     return (
         <div>
@@ -48,7 +53,7 @@ const CoursesPage = () => {
             </form>
             {state.map((course, i) => {
                 return (
-                    <div key={i} >
+                    <div key={i}>
                         <h2>{course.title}</h2>
                         <p>{course.name}</p>
                     </div>

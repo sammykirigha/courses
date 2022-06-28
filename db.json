@@ -1,0 +1,86 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "title": "React: The Big Picture",
+            "slug": "the big picture react",
+            "authorId": 1,
+            "category": "Javascript"
+        },
+        {
+            "id": 2,
+            "title": "Getting Started",
+            "slug": "react intro",
+            "authorId": 1,
+            "category": "Javascript"
+        },
+        {
+            "id": 3,
+            "title": "Designing react components",
+            "slug": "Designing react components",
+            "authorId": 1,
+            "category": "Javascript"
+        },
+        {
+            "id": 4,
+            "title": "Managing React State",
+            "slug": "Managing React State",
+            "authorId": 1,
+            "category": "Javascript"
+        },
+        {
+            "id": 5,
+            "title": "Styling React Components",
+            "slug": "Styling React Components",
+            "authorId": 1,
+            "category": "HTML5"
+        },
+        {
+            "id": 6,
+            "title": "Server Rendering React components",
+            "slug": "Server Rendering React components",
+            "authorId": 1,
+            "category": "HTML5"
+        },
+        {
+            "id": 7,
+            "title": "Testing React components",
+            "slug": "Testing React components",
+            "authorId": 1,
+            "category": "HTML5"
+        },
+        {
+            "id": 8,
+            "title": "Implementing react forms",
+            "slug": "Implementing react forms",
+            "authorId": 1,
+            "category": "HTML5"
+        },
+        {
+            "id": 9,
+            "title": "Optimize performance",
+            "slug": "Optimize performance",
+            "authorId": 1,
+            "category": "HTML5"
+        },
+        {
+            "id": 10,
+            "title": "Using React hooks",
+            "slug": "Using React hooks",
+            "authorId": 1,
+            "category": "HTML5"
+        },
+        {
+            "id": 11,
+            "title": "Managing Large datasets",
+            "slug": "Managing Large datasets",
+            "authorId": 1,
+            "category": "HTML5"
+        }
+    ],
+	"authors": [
+		{"id": 1, "name": "sammy"},
+		{"id": 2, "name": "martin"},
+		{"id": 3, "name": "joe"}
+	]
+}
