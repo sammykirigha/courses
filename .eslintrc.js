@@ -25,7 +25,7 @@ module.exports = {
       "no-debugger": "off",
       "no-console": "off",
       "no-unused-vars": "warn",
-      "react/prop-types": "warn"
+      "react/prop-types": "off"
     },
     "settings": {
       "react": {

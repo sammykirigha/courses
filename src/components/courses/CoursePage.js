@@ -1,64 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import createCourse, { loadCourses } from "../../redux/actions/courseActions";
+import { loadAuthors } from "../../redux/actions/authorActions";
+import  { loadCourses } from "../../redux/actions/courseActions";
+import CourseForm from "./CourseForm";
+import CourseList from "./CoursesList";
 
-const courses = {
-    title: "",
-    name: "",
-};
+
 const CoursesPage = () => {
-    const [course, setCourse] = useState(courses);
+    
     const dispatch = useDispatch();
+    const state = useSelector((state) => state);
+    const coursesData = state.courses;
+    const authorData = state.authors;
 
-    const state = useSelector((state) => state.courses);
-    console.log(state);
+    const courses = coursesData.map((course) => {
+        return {
+            ...course,
+            authorName: authorData.find(a => a.id === course.authorId ? a.name : course.authorId)
+        }
+    })
+
+    console.log(courses);
 
     useEffect(() => {
         dispatch(loadCourses());
-        console.log("loading data");
+        dispatch(loadAuthors())
     }, []);
 
-    const handleChange = (e) => {
-        setCourse((curCourse) => {
-            return {
-                ...curCourse,
-                [e.target.id]: e.target.value,
-            };
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(createCourse(course));
-        setCourse(courses);
-    };
+  
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <h2>Courses</h2>
-                <h3>Add Course</h3>
-                <input
-                    type="text"
-                    id="title"
-                    onChange={handleChange}
-                    value={course.title}
-                />
-                <input
-                    type="text"
-                    id="name"
-                    onChange={handleChange}
-                    value={course.name}
-                />
-                <input type="submit" value="Save" />
-            </form>
-            {state.map((course, i) => {
+           <CourseForm />
+            <CourseList courses={coursesData} />
+            {/* {state.map((course, i) => {
                 return (
                     <div key={i}>
                         <h2>{course.title}</h2>
                         <p>{course.name}</p>
                     </div>
                 );
-            })}
+            })} */}
         </div>
     );
 };
